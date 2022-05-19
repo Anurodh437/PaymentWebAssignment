@@ -1,0 +1,28 @@
+.dot {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3px dotted #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.dot1 {
+  background: #fff;
+  padding: 0 10px;
+}
+.transSize {
+  width: 40%;
+}
+
+.paying {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 48px;
+}
+
+.collecting {
+  margin-left: 21.2rem;
+}
+
+.mbs {
+  margin-top: -5px;
+}

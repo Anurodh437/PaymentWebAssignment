@@ -1,0 +1,79 @@
+<div *ngFor="let payment of payments">
+  <div class="dot mt-4" *ngIf="!dateExists(payment.transactionDate)">
+    <span class="dot1">{{ payment.transactionDate }}</span>
+  </div>
+  <div
+    class="transSize ms-auto border border-3 border-dark me-5 p-3"
+    *ngIf="payment.transactionType === 'pay'"
+  >
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <span class="fs-3">₹</span>
+        <h1>
+          {{ payment.transactionAmount }}
+        </h1>
+      </div>
+      <div class="my-auto">
+        <span>{{ payment.isRequested ? "🔗" : "✔️" }}</span> You<span>{{
+          payment.isRequested ? " requested" : " paid"
+        }}</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="mt-1" *ngIf="!payment.isRequested">
+        <div class="mb-0">Transaction ID</div>
+        <div class="mbs">{{ payment.transactionId }}</div>
+      </div>
+      <div class="mt-1" *ngIf="payment.isRequested">
+        <button class="btn btn-outline-dark px-5">Cancel</button>
+      </div>
+      <img
+        src="../../assets/icons8-right-arrow-32.png"
+        width="30px"
+        height="30px"
+      />
+    </div>
+  </div>
+  <div
+    class="transSize mt-4 border border-3 border-dark ms-5 p-3"
+    *ngIf="payment.transactionType === 'collect'"
+  >
+    <div class="d-flex justify-content-between">
+      <div class="d-flex align-items-center">
+        <span class="fs-3">₹</span>
+        <h1>
+          {{ payment.transactionAmount }}
+        </h1>
+      </div>
+      <div class="my-auto">
+        <span>{{ payment.isRequested ? "🔗" : "✔️" }}</span
+        >{{ payment.isRequested ? " Request" : " You" }}<span> received</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <div *ngIf="!payment.isRequested">
+        <div class="mb-0">Transaction ID</div>
+        <div class="mbs">{{ payment.transactionId }}</div>
+      </div>
+      <div class="mt-1" *ngIf="payment.isRequested">
+        <button class="btn btn-outline-dark px-5">Pay</button>
+        <button class="btn btn-outline-dark px-5 ms-2">Decline</button>
+      </div>
+      <img
+        src="../../assets/icons8-right-arrow-32.png"
+        width="30px"
+        height="30px"
+      />
+    </div>
+  </div>
+  <span
+    class="paying"
+    *ngIf="payment.transactionType === 'pay'"
+    >{{ payment.transactionDate + ", " + payment.transactionTime }}</span
+  >
+  <span
+    class="collecting"
+    *ngIf="payment.transactionType === 'collect'"
+    >{{ payment.transactionDate + ", " + payment.transactionTime }}</span
+  >
+</div>

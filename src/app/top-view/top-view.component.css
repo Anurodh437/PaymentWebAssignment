@@ -1,0 +1,18 @@
+.name {
+  background-color: #c5e7c3;
+  border-radius: 50%;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  font-size: 20px;
+  margin-right: 1rem;
+}
+
+.neg {
+  margin-top: -5px;
+}
+
+.brdr {
+  border-bottom: 2px solid black;
+}
